@@ -1,6 +1,9 @@
-import propTypes from "prop-types";
+import { useContext } from "react";
+import { FeedbackContext } from "../Context/Context";
 
-const Feedback = ({countFeedback, options}) => {
+const Feedback = () => {
+
+  const {countFeedback, options} = useContext(FeedbackContext);
   return (
     <>
       {options.map((option) => (
@@ -11,8 +14,6 @@ const Feedback = ({countFeedback, options}) => {
     </>
   );
 };
-Feedback.propTypes = {
-  countFeedback: propTypes.func.isRequired,
-  options: propTypes.arrayOf(propTypes.string).isRequired,
-};
+
+
 export default Feedback;

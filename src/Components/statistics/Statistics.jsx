@@ -1,22 +1,19 @@
-import PropTypes from 'prop-types';
-const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
+import { useContext } from "react";
+import { FeedbackContext } from "../Context/Context";
+
+const Statistics = () => {
+    const {good, neutral, bad, totalFeedback, countPositiveFeedbackPercentage} = useContext(FeedbackContext);
     return ( 
     <>
     <h2>Statistics</h2>
         <p>good: {good}</p>
         <p>neutral:{neutral}</p>
         <p>bad:{bad}</p>
-        <p>total:{total}</p>
-        <p>positivePercentage:{Math.floor(positivePercentage())}%</p>
+        <p>total:{totalFeedback}</p>
+        <p>positivePercentage:{Math.floor(countPositiveFeedbackPercentage())}%</p>
     </>
      );
 }
-Statistics.propTypes = { 
-    good: PropTypes.number.isRequired ,
-    neutral: PropTypes.number.isRequired ,
-    bad: PropTypes.number.isRequired ,
-    total: PropTypes.number.isRequired ,
-    positivePercentage: PropTypes.func.isRequired
-}
+
 
 export default Statistics;
